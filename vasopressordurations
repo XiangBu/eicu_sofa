@@ -1,0 +1,18 @@
+--change drug as text from unknown type first
+DROP MATERIALIZED VIEW IF EXISTS vasopressordurations;
+CREATE TABLE vasopressordurations AS
+--with epinephrinedurations as (select 'text'::text)    
+SELECT * FROM epinephrinedurations
+UNION ALL
+--with norepinephrinedurations as (select 'text'::text)
+SELECT * FROM norepinephrinedurations
+UNION ALL
+--with phenylephrinedurations as (select 'text'::text)
+SELECT * FROM phenylephrinedurations
+UNION ALL
+--with vasopressindurations as (select 'text'::text)
+SELECT * FROM vasopressindurations
+UNION ALL
+--with dopaminedurations as (select 'text'::text)
+SELECT * FROM dopaminedurations;
+ 
